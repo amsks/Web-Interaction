@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link href="css/style.css" rel="Stylesheet" type="text/css" />
+	<title>YOUTUBE RIPOFF</title>
+</head>
+
+<body>
+	<header>
+		<div class="flex">
+			<div class="logo">
+				<a href="#">
+					My Videos
+				</a>
+			</div>
+			<nav>
+				<button id="nav-toggle" class="hamburger-menu">
+					<span class="strip"></span>
+					<span class="strip"></span>
+					<span class="strip"></span>
+				</button>
+				<ul id="nav-menu-container">
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Register</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	
+	
+	<div class="grid-row reverse video-gallery logo">
+		
+		<h2> VIDEO JUKEBOX</h2>
+
+		<label id="vid_no">
+			<h3>Playing Video 1/6</h3>
+		</label>
+
+		<input type="radio" class="options" value="1" name="video-list" id="video-1" checked="checked" />
+			<label for="video-1">Video 1</label>
+		
+		<input type="radio" class="options" value="2" name="video-list" id="video-2" />
+			<label for="video-2">Video 2</label>
+		
+		<input type="radio" class="options" value="3" name="video-list" id="video-3" />
+			<label for="video-3">Video 3</label>
+		
+		<input type="radio" class="options" value="4" name="video-list" id="video-4" />
+			<label for="video-4">Video 4</label>
+		
+		<input type="radio" class="options" value="5" name="video-list" id="video-5" />
+			<label for="video-5">Video 5</label>
+		
+		<input type="radio" class="options" value="6" name="video-list" id="video-6" />
+			<label for="video-6">Video 6</label>
+		
+		<!-- videos -->
+		<div class="video">
+				<video controls width="560" height="315" id="vid">
+					<source src="https://archive.org/download/jabludbael49ukar0kowedengduet/1.mp4" type="video/mp4">
+				</video>
+		</div>
+		<!-- videos -->
+	</div>
+	
+	<br/>
+	<br/>
+	
+	<!-- Search Box for video -->
+	<form>
+		<label>URL :
+			<input size="126" type="url" class="search-box" value="" name="search-box" id="urlbox" />
+		</label>
+		<br /><br />
+		<label>Seek :
+			<input size="10" type="number" class="search-box" value="" name="search-box" id="seekbox" />
+		</label>
+		<br/><br/>
+		<label>
+			<button id="preview-button" type="button">Preview</button>
+		</label>
+		<br /><br />
+		<label>
+			<button id="rotate-button" type="button">rotate</button>
+		</label>
+		<br /><br />
+		<label for="hide_box">Hide Controls
+			<input type="checkbox" id="hide_box" name="hide_box">
+		</label>
+		<br /><br />
+		<label>
+			<button id="mirror-button" type="button">Mirror Video</button>
+		</label>
+
+	</form>
+<!-- 
+	<br /><br />
+
+	<button class="open-button" onclick="openForm()">Open Form</button>
+
+	<div class="form-popup" id="myForm">
+		<form action="/action_page.php" class="form-container">
+			<h3>Login</h3>
+	
+			<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+	
+			<br /><br />
+			<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+	
+			<br /><br />
+			<button type="submit" class="btn">Login</button>
+			<button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+		</form>
+	</div> -->
+
+
+	<!-- Canvas for generating the preview -->
+	<canvas id="preivew-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
+
+	<ul class="comment-section">
+		<li class="comments user_comments">
+			<div class="information">
+				<a href="#">Anita Boston</a>
+				<span>7 hours ago</span>
+			</div>
+			<a class="avatar" href="#">
+				<img src="images/avataruser_one.jpg" width="30" alt="Profile Avatar" title="Anita Boston" />
+			</a>
+			<p>I think this shall work.</p>
+		</li>
+		<li class="comments author_comments">
+			<div class="information">
+				<a href="#">Jackie Sharp</a>
+				<span>5 hours ago</span>
+			</div>
+			<a class="avatar" href="#">
+				<img src="images/avatarauthor.jpg" width="30" alt="Profile Avatar" title="Jackie Sharp" />
+			</a>
+			<p>Sure enough! With a little bit of effort, everything is possible.</p>
+		</li>
+		<!—Add more comments in this section-->
+			<li class="write_new">
+				<form action="#" method="post">
+					<textarea placeholder="Please add your comment here" name="comments"></textarea>
+					<div>
+						<img src="images/avataruser_two.jpg" width="30" alt="Profile Brad Jonas" title="Brad Jonas" />
+						<button type="submit">Submit</button>
+					</div>
+				</form>
+			</li>
+		</ul>
+
+
+	
+	<script type="text/javascript" src="javascript/test.js"></script>
+
+	<footer>
+		<div class="flex">
+			<small>&copy; 2019 Aditya Mohan, EURECOM France</small>
+		</div>
+	</footer>
+	
+</body>
