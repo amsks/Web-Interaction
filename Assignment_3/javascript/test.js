@@ -126,10 +126,135 @@ function draw(v, c, w, h) {
 
 // Login Form
 
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
+// Name and Password from the register-form
+var login_name = document.getElementById('login_name');
+var pw = document.getElementById('pw');
+var ph_no = document.getElementById('ph_no'); 
+var logged_in = false;
+var current_user = "abc";
+
+// storing input from register-form
+function store() {
+    var storedName = localStorage.getItem('login_name');
+
+    if(login_name.value == storedName ){
+        alert("You are already Registered");
+        open_login_Form();
+    }
+    else{
+        localStorage.setItem('login_name', login_name.value);
+        localStorage.setItem('pw', pw.value);
+        localStorage.setItem('ph_no', ph_no.value);
+        alert("You are Registered");
+        close_register_Form();
+    }
+    
+    
 }
 
-function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+
+// check if stored data from register-form is equal to entered data in the   login-form
+function check() {
+
+    // stored data from the register-form
+    var storedName = localStorage.getItem('login_name');
+    var storedPw = localStorage.getItem('pw');
+
+    // entered data from the login-form
+    var userName = document.getElementById('userName');
+    var userPw = document.getElementById('userPw');
+
+    // check if stored data from register-form is equal to data from login form
+    if (userName.value == storedName && userPw.value == storedPw) {
+        alert('You are logged in.');
+        logged_in = true;
+        current_user = userName.value;
+        close_login_Form();
+        LoadComment();
+    } else {
+        alert('ERROR - Not a registered user');
+        open_register_Form();
+    }
+}
+
+
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date + ' ' + time;
+
+
+function getwords() {
+    
+    if(logged_in){
+        text = words.value;
+        // document.getElementById("usr").innerHTML += ;
+        // document.getElementById("time").innerHTML += '<p>' + dateTime;
+        document.getElementById("para").innerHTML += '<h3>' + current_user + '</h3>' + '<p>' + dateTime + '<br/>' + '<p>' + text + '<br/>';
+        document.getElementById("words").value = "enter" ;
+    }
+    else{
+        alert("Please log-in!")
+    }
+    
+    
+}
+
+function SaveComment() {
+
+    var comments = document.getElementById("para")
+    localStorage.setItem("comments", comments.innerHTML)
+    
+}
+
+function LoadComment() {
+
+    document.getElementById("para").innerHTML += localStorage.getItem("comments")
+}
+
+
+// Geolocation
+
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
+function success(pos) {
+    var crd = pos.coords;
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+}
+
+function error(err) {
+    alert(`ERROR(${err.code}): ${err.message}`);
+}
+
+var current_pos = navigator.geolocation.getCurrentPosition(success, error, options);
+
+// var coords = { lat: "", lon: "" };
+
+
+
+
+//Opening and Closing the Forms
+function open_login_Form() {
+    document.getElementById("login-form").style.display = "block";
+}
+
+function close_login_Form() {
+    document.getElementById("login-form").style.display = "none";
+}
+
+
+function open_register_Form() {
+    document.getElementById("register-form").style.display = "block";
+}
+
+function close_register_Form() {
+    document.getElementById("register-form").style.display = "none";
 }

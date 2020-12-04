@@ -23,8 +23,13 @@
 					<span class="strip"></span>
 				</button>
 				<ul id="nav-menu-container">
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Register</a></li>
+					<li>
+						<input type="button" onclick="open_login_Form()" value="Login" />
+						<!-- <a href="#">Login</a> -->
+					</li>
+					<li>
+						<input type="button" onclick="open_register_Form()" value="Register" />
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -96,66 +101,35 @@
 		</label>
 
 	</form>
-<!-- 
-	<br /><br />
-
-	<button class="open-button" onclick="openForm()">Open Form</button>
-
-	<div class="form-popup" id="myForm">
-		<form action="/action_page.php" class="form-container">
-			<h3>Login</h3>
-	
-			<label for="email"><b>Email</b></label>
-				<input type="text" placeholder="Enter Email" name="email" required>
-	
-			<br /><br />
-			<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" required>
-	
-			<br /><br />
-			<button type="submit" class="btn">Login</button>
-			<button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-		</form>
-	</div> -->
-
 
 	<!-- Canvas for generating the preview -->
 	<canvas id="preivew-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
 
-	<ul class="comment-section">
-		<li class="comments user_comments">
-			<div class="information">
-				<a href="#">Anita Boston</a>
-				<span>7 hours ago</span>
-			</div>
-			<a class="avatar" href="#">
-				<img src="images/avataruser_one.jpg" width="30" alt="Profile Avatar" title="Anita Boston" />
-			</a>
-			<p>I think this shall work.</p>
-		</li>
-		<li class="comments author_comments">
-			<div class="information">
-				<a href="#">Jackie Sharp</a>
-				<span>5 hours ago</span>
-			</div>
-			<a class="avatar" href="#">
-				<img src="images/avatarauthor.jpg" width="30" alt="Profile Avatar" title="Jackie Sharp" />
-			</a>
-			<p>Sure enough! With a little bit of effort, everything is possible.</p>
-		</li>
-		<!—Add more comments in this section-->
-			<li class="write_new">
-				<form action="#" method="post">
-					<textarea placeholder="Please add your comment here" name="comments"></textarea>
-					<div>
-						<img src="images/avataruser_two.jpg" width="30" alt="Profile Brad Jonas" title="Brad Jonas" />
-						<button type="submit">Submit</button>
-					</div>
-				</form>
-			</li>
-		</ul>
+	<div style="display:none;" class="form" id="register-form">
+	<!-- <form id="register-form"> -->
+		<input id="login_name" type="text" placeholder="Name" value="" />
+		<input id="pw" type="password" placeholder="Password" value="" />
+		<input id="ph_no" type="password" placeholder="Phone Number" value="" />
+		<input id="rgstr_btn" type="submit" value="Register Account" onClick="store()" />
+	<!-- </form> -->
+	</div>
 
+	<div style="display:none;" class="form" id="login-form">
+	<!-- <form id="login-form"> -->
+		<input id="userName" type="text" placeholder="Enter Username" value="" />
+		<input id="userPw" type="password" placeholder="Enter Password" value="" />
+		<input id="login_btn" type="submit" value="Login" onClick="check()" />
+	<!-- </form> -->
+	</div>
 
+	<br/><br/>
+	<h3>Comment Section</h3>
+	<form>
+		<textarea id="words" rows="10" cols="20">Enter comment</textarea>
+		<input type="button" onclick="getwords()" value="Enter" /> <br>
+		<!-- <h3 id="usr"></h3> -->
+		<p id="para"></p>
+	</form>
 	
 	<script type="text/javascript" src="javascript/test.js"></script>
 
